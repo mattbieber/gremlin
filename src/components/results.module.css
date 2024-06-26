@@ -1,0 +1,26 @@
+
+.resultrow {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    margin: 1rem 0;
+    a{
+        font-weight: 600;
+        margin: 0;
+        text-decoration: none;
+        color: black;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    aside {
+        margin-bottom: 0.2rem;
+        display: flex;
+        gap: 1rem;
+        div {
+            background-color: #eeeeee;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    }
+}
