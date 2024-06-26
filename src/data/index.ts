@@ -24,9 +24,11 @@ const instance = axios.create({
     headers: {},
 })
 
-export const search = async (term: string): Promise<SearchResult[]> => {
+export const search = async (term: string, shouldFail: boolean): Promise<SearchResult[]> => {
     return new Promise<SearchResult[]>(async (resolve, reject) => {
+        
         try {
+            if (shouldFail) throw new Error('Failed api call...')
             const res = await instance.request({
                 method: 'get',
                 params: {

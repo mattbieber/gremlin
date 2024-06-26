@@ -2,20 +2,23 @@ import React, { type KeyboardEvent } from 'react'
 // @ts-expect-error - postCss module
 import { search } from './search-bar.module.css'
 
+// fn prop from parent
 interface SearchBarProps {
     searchFn: (arg: string) => void
 }
 
 export const SearchBar = ({ searchFn }: SearchBarProps) => {
-   
     const [term, setTerm] = React.useState<string>('')
 
+    // event handler for Enter key
     const onEnter = (ev: KeyboardEvent) => {
-        if(ev.key === 'Enter' && term.length > 3) {
+        if (ev.key === 'Enter' && term.length > 3) {
             searchFn(term)
         }
     }
 
+    // builds search term - this could be handled onEnter - was
+    // initially thinking might have time for type-ahead
     const onChange = (ev: React.FormEvent<HTMLInputElement>) => {
         setTerm(ev.currentTarget.value)
     }
@@ -75,7 +78,7 @@ export const SearchBar = ({ searchFn }: SearchBarProps) => {
                     </div>
                 )}
             </div>
-            <div className="note">Click the button or hit enter.</div>
+            <p style={{ color: '#acabab' }}>* press Enter key to perform search</p>
         </>
     )
 }
